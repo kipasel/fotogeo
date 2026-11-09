@@ -5,16 +5,11 @@ echo ========================================================
 echo   UPLOAD / PUSH KE GITHUB PAGES
 echo ========================================================
 echo.
-echo Pastikan Anda sudah membuat repository baru di GitHub:
-echo https://github.com/new (misal dengan nama: fotogps)
+echo Target Repository: https://github.com/kipasel/fotogeo.git
 echo.
-set /p REPO_URL="Masukkan URL Repository GitHub Anda (contoh: https://github.com/fahmikip/fotogps.git): "
-
-if "%REPO_URL%"=="" (
-    echo [ERROR] URL tidak boleh kosong!
-    pause
-    exit /b
-)
+set "DEFAULT_URL=https://github.com/kipasel/fotogeo.git"
+set /p REPO_URL="Tekan ENTER untuk push ke %DEFAULT_URL% (atau masukkan URL lain): "
+if "%REPO_URL%"=="" set "REPO_URL=%DEFAULT_URL%"
 
 echo.
 echo [1/3] Menyetel remote origin ke: %REPO_URL%
